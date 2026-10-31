@@ -138,6 +138,11 @@ export const AGENT_LOCAL_CLI_CONFIG: Readonly<Record<AgentId, AgentLocalCliConfi
       args: ['auth', 'login'],
     }],
   }),
+  dsh: createAgentLocalCliConfig('dsh', {
+    machineLoginKey: 'deepseek-harness',
+    authSupport: 'unsupported',
+    authLaunches: [],
+  }),
   customAcp: createAgentLocalCliConfig('customAcp', {
     machineLoginKey: 'custom-acp',
     authSupport: 'unsupported',

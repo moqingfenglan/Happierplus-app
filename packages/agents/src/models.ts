@@ -348,6 +348,16 @@ export const AGENT_MODEL_CONFIG: Readonly<Record<AgentId, AgentModelConfig>> = O
     defaultMode: 'default',
     allowedModes: ['default'],
   },
+  dsh: {
+    supportsSelection: true,
+    supportsFreeform: true,
+    nonAcpApplyScope: 'next_prompt',
+    acpApplyBehavior: 'set_model',
+    acpModelConfigOptionId: 'model',
+    dynamicProbe: 'auto',
+    defaultMode: 'default',
+    allowedModes: ['default'],
+  },
   customAcp: {
     supportsSelection: true,
     supportsFreeform: true,

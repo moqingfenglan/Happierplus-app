@@ -33,6 +33,7 @@ import { CURSOR_CORE } from '@/agents/providers/cursor/core';
 import { GROK_CORE } from '@/agents/providers/grok/core';
 import { AGY_CORE } from '@/agents/providers/agy/core';
 import { FX_CORE } from '@/agents/providers/fx/core';
+import { DSH_CORE } from '@/agents/providers/dsh/core';
 import { DROID_CORE } from '@/agents/providers/droid/core';
 import { CODEBUDDY_CORE } from '@/agents/providers/codebuddy/core';
 
@@ -232,6 +233,7 @@ export const AGENTS_CORE = Object.freeze({
     cursor: CURSOR_CORE,
     grok: GROK_CORE,
     fx: FX_CORE,
+    dsh: DSH_CORE,
     droid: DROID_CORE,
     codebuddy: CODEBUDDY_CORE,
     agy: AGY_CORE,

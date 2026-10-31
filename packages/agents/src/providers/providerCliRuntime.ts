@@ -502,6 +502,21 @@ export const PROVIDER_CLI_RUNTIME_SPECS: Readonly<Record<AgentId, ProviderCliRun
     installGuideUrl: 'https://antigravity.google/docs/cli/install',
     docsUrl: 'https://antigravity.google/docs/cli/install',
   },
+  dsh: {
+    id: 'dsh',
+    title: 'DeepSeek Harness',
+    binaryName: 'dsh-acp-bridge',
+    knownCommandCandidates: [
+      { kind: 'homeBinDir', relativeDir: 'AppData/Local/HarnessLink/bin' },
+      { kind: 'homeBinDir', relativeDir: '.local/bin' },
+    ],
+    sourcePreferenceDefault: 'system-first',
+    managedInstall: null,
+    manualInstallKind: 'none',
+    manualInstallRecipes: null,
+    acceptsJavaScriptFileOverride: false,
+    docsUrl: null,
+  },
   fx: {
     id: 'fx',
     title: 'FX CLI',

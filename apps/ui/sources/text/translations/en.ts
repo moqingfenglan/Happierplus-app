@@ -4070,6 +4070,9 @@ export const en = {
             fx: {
                 title: "FX"
             },
+            dsh: {
+                title: "DeepSeek Harness"
+            },
             droid: {
                 title: "Factory Droid"
             },
@@ -6295,6 +6298,8 @@ export const en = {
         agySessionIdCopied: 'Agy Session ID copied to clipboard',
         fxSessionId: 'FX Session ID',
         fxSessionIdCopied: 'FX Session ID copied to clipboard',
+        dshSessionId: 'DeepSeek Harness Session ID',
+        dshSessionIdCopied: 'DeepSeek Harness Session ID copied to clipboard',
         droidSessionId: 'Factory Droid Session ID',
         codebuddySessionId: 'CodeBuddy Session ID',
         droidSessionIdCopied: 'Factory Droid Session ID copied to clipboard',
@@ -6539,6 +6544,7 @@ export const en = {
             kiro: 'Kiro',
             devin: 'Devin',
             fx: 'FX',
+            dsh: 'DeepSeek Harness',
             droid: 'Factory Droid',
             codebuddy: 'CodeBuddy',
             customAcp: 'Custom ACP',
@@ -10730,6 +10736,7 @@ settingsSession: {
             devinSubtitleExperimental: 'Devin CLI (experimental)',
             agySubtitleExperimental: 'Antigravity CLI (experimental)',
             fxSubtitleExperimental: 'FX CLI (experimental)',
+            dshSubtitleExperimental: 'DeepSeek Harness (ACP, experimental)',
             droidSubtitleExperimental: 'Factory Droid CLI (experimental)',
             codebuddySubtitleExperimental: 'CodeBuddy Code CLI (experimental)',
             customAcpSubtitleExperimental: 'Custom ACP CLI (experimental)',

@@ -54,6 +54,7 @@ export const AGENT_SESSION_MODE_DESCRIPTORS: Readonly<Record<AgentId, AgentSessi
   fx: { source: 'acp', semantics: 'agent-modes', runtimeSwitch: 'acp-setSessionMode' },
   droid: { source: 'acp', semantics: 'agent-modes', runtimeSwitch: 'acp-setSessionMode' },
   codebuddy: { source: 'acp', semantics: 'agent-modes', runtimeSwitch: 'acp-setSessionMode' },
+  dsh: { source: 'none', semantics: 'none', runtimeSwitch: 'none' },
 });
 
 function descriptorToSessionModesKind(descriptor: AgentSessionModeDescriptor): AgentSessionModesKind {
@@ -89,6 +90,7 @@ export const AGENT_SESSION_MODES: Readonly<Record<AgentId, AgentSessionModesKind
   fx: descriptorToSessionModesKind(AGENT_SESSION_MODE_DESCRIPTORS.fx),
   droid: descriptorToSessionModesKind(AGENT_SESSION_MODE_DESCRIPTORS.droid),
   codebuddy: descriptorToSessionModesKind(AGENT_SESSION_MODE_DESCRIPTORS.codebuddy),
+  dsh: descriptorToSessionModesKind(AGENT_SESSION_MODE_DESCRIPTORS.dsh),
 });
 
 export function getAgentSessionModeDescriptor(agentId: AgentId): AgentSessionModeDescriptor {

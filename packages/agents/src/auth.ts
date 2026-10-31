@@ -110,6 +110,13 @@ export const AGENT_AUTH_PROBE_CONFIG: Readonly<Record<AgentId, AgentAuthProbeCon
     // The current CLI writes its log on startup, so do not invoke it as an ambient background probe.
     backgroundChecks: 'manual_only',
   },
+  dsh: {
+    agentId: 'dsh',
+    binaryNames: [getProviderCliRuntimeSpec('dsh').binaryName],
+    statusCommand: null,
+    parser: 'unknown',
+    backgroundChecks: 'manual_only',
+  },
   customAcp: {
     agentId: 'customAcp',
     binaryNames: [getProviderCliRuntimeSpec('customAcp').binaryName],

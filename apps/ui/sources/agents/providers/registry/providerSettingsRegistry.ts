@@ -20,6 +20,7 @@ import { CURSOR_PROVIDER_SETTINGS_PLUGIN } from '../cursor/settings/plugin';
 import { GROK_PROVIDER_SETTINGS_PLUGIN } from '../grok/settings/plugin';
 import { AGY_PROVIDER_SETTINGS_PLUGIN } from '../agy/settings/plugin';
 import { FX_PROVIDER_SETTINGS_PLUGIN } from '../fx/settings/plugin';
+import { DSH_PROVIDER_SETTINGS_PLUGIN } from '../dsh/settings/plugin';
 import { DROID_PROVIDER_SETTINGS_PLUGIN } from '../droid/settings/plugin';
 import { CODEBUDDY_PROVIDER_SETTINGS_PLUGIN } from '../codebuddy/settings/plugin';
 
@@ -160,6 +161,7 @@ export const PROVIDER_SETTINGS_PLUGINS = [
     GROK_PROVIDER_SETTINGS_PLUGIN,
     AGY_PROVIDER_SETTINGS_PLUGIN,
     FX_PROVIDER_SETTINGS_PLUGIN,
+    DSH_PROVIDER_SETTINGS_PLUGIN,
     DROID_PROVIDER_SETTINGS_PLUGIN,
     CODEBUDDY_PROVIDER_SETTINGS_PLUGIN,
 ] as const satisfies readonly ProviderSettingsPlugin[];

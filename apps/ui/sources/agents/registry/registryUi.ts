@@ -19,6 +19,7 @@ import { COPILOT_UI } from '@/agents/providers/copilot/ui';
 import { CURSOR_UI } from '@/agents/providers/cursor/ui';
 import { GROK_UI } from '@/agents/providers/grok/ui';
 import { FX_UI } from '@/agents/providers/fx/ui';
+import { DSH_UI } from '@/agents/providers/dsh/ui';
 import { DROID_UI } from '@/agents/providers/droid/ui';
 import { CODEBUDDY_UI } from '@/agents/providers/codebuddy/ui';
 import { AGY_UI } from '@/agents/providers/agy/ui';
@@ -70,6 +71,7 @@ export const AGENTS_UI: Readonly<Record<AgentId, AgentUiConfig>> = Object.freeze
     cursor: CURSOR_UI,
     grok: GROK_UI,
     fx: FX_UI,
+    dsh: DSH_UI,
     droid: DROID_UI,
     codebuddy: CODEBUDDY_UI,
     agy: AGY_UI,

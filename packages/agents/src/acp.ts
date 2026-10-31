@@ -86,6 +86,16 @@ export const BUILT_IN_ACP_CONFIG: Readonly<Partial<Record<AgentId, BuiltInAcpCon
     promptImageSupport: 'auto',
     mcpServers: 'pass',
   },
+  dsh: {
+    agentId: 'dsh',
+    launcher: { command: providerLauncherCommand('dsh'), args: [] },
+    transportProfile: 'generic',
+    supportsLoadSession: true,
+    supportsModes: 'no',
+    supportsModels: 'auto',
+    promptImageSupport: 'auto',
+    mcpServers: 'pass',
+  },
   fx: {
     agentId: 'fx',
     launcher: { command: providerLauncherCommand('fx'), args: ['acp'] },
