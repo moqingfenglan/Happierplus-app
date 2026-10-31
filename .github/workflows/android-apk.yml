@@ -32,7 +32,9 @@ jobs:
 
       - name: Free disk space
         run: |
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk /opt/ghc /opt/hostedtoolcache/CodeQL /usr/local/share/boost
+          sudo mkdir -p /usr/local/lib/android
+          sudo chown -R "$USER":"$USER" /usr/local/lib/android
           sudo apt-get clean
           df -h
 
