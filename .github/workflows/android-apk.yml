@@ -74,13 +74,13 @@ jobs:
       - name: Expo prebuild (Android)
         run: yarn workspace @happier-dev/app prebuild
 
-      - name: Gradle assembleDebug
+      - name: Gradle assembleRelease
         working-directory: apps/ui/android
-        run: ./gradlew assembleDebug --no-daemon -PreactNativeArchitectures=arm64-v8a
+        run: ./gradlew assembleRelease --no-daemon -PreactNativeArchitectures=arm64-v8a -x lintVitalRelease -x lintVitalAnalyzeRelease
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: harnesslink-debug-apk
-          path: apps/ui/android/app/build/outputs/apk/debug/app-debug.apk
+          name: harnesslink-release-apk
+          path: apps/ui/android/app/build/outputs/apk/release/app-release.apk
           if-no-files-found: error
