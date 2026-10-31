@@ -1,4 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
+const fs = require('fs');
+const path = require('path');
 const { getAppEnvironmentConfig } = require('./appVariantConfig.cjs');
 const { EXPO_PROJECT_CONFIG } = require('./appProjectConfig.cjs');
 
@@ -342,7 +344,7 @@ const baseExpoConfig = {
             ],
             edgeToEdgeEnabled: true,
             package: androidPackage,
-            googleServicesFile: "./google-services.json",
+            googleServicesFile: fs.existsSync(path.join(__dirname, 'google-services.json')) ? './google-services.json' : undefined,
             intentFilters: appEnvironmentConfig.enableAssociatedDomains ? [
                 {
                     "action": "VIEW",
