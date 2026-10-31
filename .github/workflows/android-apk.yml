@@ -26,6 +26,8 @@ jobs:
       HAPPIER_INSTALL_SCOPE: ui,protocol,agents,cli-common,release-runtime,transfers,connection-supervisor,audio-stream-native,sherpa-native
       HAPPIER_ANDROID_GRADLE_JVMARGS: -Xmx4g -XX:MaxMetaspaceSize=1024m -Dfile.encoding=UTF-8
       YARN_PRODUCTION: 'false'
+      SENTRY_DISABLE_AUTO_UPLOAD: 'true'
+      SENTRY_ALLOW_FAILURE: 'true'
       npm_config_production: 'false'
     steps:
       - uses: actions/checkout@v4
