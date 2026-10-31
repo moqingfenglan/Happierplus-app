@@ -60,6 +60,9 @@ jobs:
       - name: Build workspace packages
         run: yarn build:packages
 
+      - name: Remove upstream Firebase config
+        run: rm -f apps/ui/google-services.json
+
       - name: Expo prebuild (Android)
         run: yarn workspace @happier-dev/app prebuild
 

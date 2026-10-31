@@ -615,7 +615,7 @@ export const AGENTS_CORE = {
         cloudConnect: null,
         connectedServices: null,
         resume: { vendorResume: 'supported', vendorResumeIdField: 'dshSessionId' },
-        sessionStorage: { direct: true, persisted: true },
+        sessionStorage: { direct: false, persisted: true },
         sessionCapabilities: {
             sessionListing: 'supported',
             sessionListingSource: 'acp',
