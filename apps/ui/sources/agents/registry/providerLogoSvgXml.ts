@@ -255,6 +255,17 @@ export function githubSvg(theme: Theme): string {
     );
 }
 
+function dshSvg(theme: Theme): string {
+    const color = theme.colors.text.primary;
+    return monochrome(
+        color,
+        `<circle cx="12" cy="12" r="8.2" fill="none" stroke="${color}" stroke-width="1.4" opacity="0.45"/>
+         <circle cx="12" cy="12" r="2.6" fill="${color}"/>
+         <path d="M12 3.8v4.1M12 16.1v4.1M3.8 12h4.1M16.1 12h4.1" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round"/>`,
+        '0 0 24 24',
+    );
+}
+
 export const PROVIDER_LOGO_SVG_XML: Partial<Record<AgentId, AgentIconSvgXmlResolver>> = {
     agy: agySvg,
     auggie: auggieSvg,
@@ -275,4 +286,5 @@ export const PROVIDER_LOGO_SVG_XML: Partial<Record<AgentId, AgentIconSvgXmlResol
     fx: fxSvg,
     droid: droidSvg,
     codebuddy: codebuddySvg,
+    dsh: dshSvg,
 };
