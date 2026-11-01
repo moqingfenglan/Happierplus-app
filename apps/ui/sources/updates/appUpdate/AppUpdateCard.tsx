@@ -146,7 +146,7 @@ export const AppUpdateCard = React.memo(function AppUpdateCard() {
                     <RoundButton size="small" title={t('updates.appUpdate.download')} onPress={() => void download()} />
                 ) : phase === 'ready' ? (
                     <RoundButton size="small" title={t('updates.appUpdate.install')} onPress={() => void install()} />
-                ) : (
+                ) : phase === 'checking' || phase === 'downloading' ? null : (
                     <RoundButton
                         size="small"
                         title={phase === 'error' ? t('updates.appUpdate.retry') : t('updates.appUpdate.check')}
