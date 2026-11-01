@@ -1,0 +1,43 @@
+name: Windows CLI
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: windows-cli-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    env:
+      HAPPIER_INSTALL_SCOPE: ui,protocol,agents,cli-common,release-runtime,transfers,connection-supervisor,audio-stream-native,sherpa-native
+      YARN_PRODUCTION: 'false'
+      npm_config_production: 'false'
+      SENTRY_DISABLE_AUTO_UPLOAD: 'true'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.14.0
+          cache: yarn
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile --network-timeout 600000
+
+      - name: Build workspace packages
+        run: yarn build:packages
+
+      - name: Build Windows CLI binary
+        run: node scripts/pipeline/release/build-cli-binaries.mjs --targets windows-x64 --channel stable --version 0.2.17-dsh
+
+      - name: Upload CLI artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: happier-windows-cli
+          path: dist/release-assets/cli/**
+          if-no-files-found: error
