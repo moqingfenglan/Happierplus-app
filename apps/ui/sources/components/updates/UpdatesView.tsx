@@ -4,6 +4,7 @@ import { View } from 'react-native';
 import { useLayoutMaxWidth } from '@/components/ui/layout/layout';
 import { ItemList } from '@/components/ui/lists/ItemList';
 import { useUpdatesContentModel } from '@/updates/useUpdatesContentModel';
+import { AppUpdateCard } from '@/updates/appUpdate/AppUpdateCard';
 
 import { UpdatesContent } from './UpdatesContent';
 
@@ -14,6 +15,7 @@ export const UpdatesView = React.memo(function UpdatesView() {
     return (
         <ItemList style={{ paddingTop: 0 }} testID="updates-screen">
             <View style={{ width: '100%', maxWidth, alignSelf: 'center' }}>
+                <AppUpdateCard />
                 <UpdatesContent model={model} presentation="screen" />
             </View>
         </ItemList>
