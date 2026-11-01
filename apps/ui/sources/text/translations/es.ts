@@ -9889,6 +9889,21 @@ settingsSession: {
     title: "Actualizaciones",
     thisAppTitle: "Happier",
     happierCliTitle: "Happier CLI",
+    'appUpdate': {
+        title: 'App update',
+        current: 'Current version {{version}}',
+        check: 'Check for updates',
+        checking: 'Checking for updates…',
+        latest: 'You are on the latest version.',
+        available: 'Version {{version}} is available.',
+        download: 'Download and install',
+        downloading: 'Downloading… {{percent}}%',
+        ready: 'Download complete. Open the installer.',
+        install: 'Open installer',
+        error: 'Could not check for updates.',
+        retry: 'Retry',
+    },
+
     sections: {
       thisApp: "Esta app",
       thisComputer: "Este ordenador",
