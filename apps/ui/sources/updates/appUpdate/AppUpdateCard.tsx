@@ -19,7 +19,7 @@ import {
 const RELEASE_API = 'https://api.github.com/repos/moqingfenglan/Happierplus-app/releases/latest';
 const APK_NAME = 'app-release.apk';
 
-type Release = Readonly<{ version: ParsedVersion; url: string }>;
+type Release = Readonly<{ version: ParsedVersion; url: string; notes: string | null }>;
 
 type Phase = 'idle' | 'checking' | 'latest' | 'available' | 'downloading' | 'ready' | 'error';
 
@@ -37,6 +37,7 @@ async function fetchLatestRelease(): Promise<Release | null> {
     if (!response.ok) throw new Error(`GitHub release check failed: ${response.status}`);
     const body = await response.json() as {
         tag_name?: unknown;
+        body?: unknown;
         assets?: Array<{ name?: unknown; browser_download_url?: unknown }>;
     };
     const version = parseReleaseVersion(String(body.tag_name ?? ''));
@@ -45,7 +46,8 @@ async function fetchLatestRelease(): Promise<Release | null> {
     const asset = (body.assets ?? []).find((candidate) => candidate.name === APK_NAME)
         ?? (body.assets ?? []).find((candidate) => typeof candidate.name === 'string' && candidate.name.endsWith('.apk'));
     if (!asset || typeof asset.browser_download_url !== 'string') throw new Error('Release has no APK asset');
-    return { version, url: asset.browser_download_url };
+    const notes = typeof body.body === 'string' && body.body.trim().length > 0 ? body.body.trim() : null;
+    return { version, url: asset.browser_download_url, notes };
 }
 
 export const AppUpdateCard = React.memo(function AppUpdateCard() {
@@ -141,6 +143,11 @@ export const AppUpdateCard = React.memo(function AppUpdateCard() {
                     {status}
                 </Text>
             ) : null}
+            {phase === 'available' && release?.notes ? (
+                <Text style={[styles.notes, { color: theme.colors.text.secondary }]} numberOfLines={5}>
+                    {release.notes}
+                </Text>
+            ) : null}
             <View style={styles.actions}>
                 {phase === 'available' ? (
                     <RoundButton size="small" title={t('updates.appUpdate.download')} onPress={() => void download()} />
@@ -173,6 +180,10 @@ const styles = StyleSheet.create({
     },
     meta: {
         fontSize: 13,
+    },
+    notes: {
+        fontSize: 12,
+        lineHeight: 17,
     },
     actions: {
         marginTop: 4,
