@@ -34,6 +34,10 @@ export function buildRemoteMachineUpdateFacts(
     for (const machine of machines) {
         if (machine.id === thisMachineId || !machine.metadata) continue;
         const facts = machine.metadata.cliUpdate ?? null;
+        const happyCliVersion = machine.metadata.happyCliVersion || null;
+        // HarnessLink's fork daemon reports a -dsh version; the upstream update ring would
+        // otherwise offer a downgrade to the older official CLI.
+        if (happyCliVersion?.includes('-dsh')) continue;
         const online = isMachineOnline(machine);
         const lastUpdateSignature = signatureOfLastUpdate(facts?.lastUpdate ?? null);
         const cliItem = buildRemoteCliUpdateItem({
@@ -41,7 +45,7 @@ export function buildRemoteMachineUpdateFacts(
             title: t('updates.happierCliTitle'),
             online,
             platform: machine.metadata.platform ?? null,
-            happyCliVersion: machine.metadata.happyCliVersion || null,
+            happyCliVersion,
             facts,
             // K5: the machine's own fact, and the daemon's kinds once a detect has been cached
             // (`null` = not read yet; a daemon with K5 facts lists the kind exactly when it can).

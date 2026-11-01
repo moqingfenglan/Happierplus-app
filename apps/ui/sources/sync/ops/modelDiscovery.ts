@@ -45,7 +45,7 @@ export async function discoverMachineModels(params: Readonly<{
                     const previous = readDynamicModelProbeCache(params.cacheKey);
                     const previousList = previous?.kind === 'success' ? previous.value : null;
                     const list = previousList && stableJsonStringify(previousList) === stableJsonStringify(parsed) ? previousList : parsed;
-                    const failed = record.refreshError === true || (record.source === 'static' && record.refreshError !== false);
+                    const failed = record.refreshError === true;
                     const observedAt = typeof record.observedAt === 'number' && Number.isFinite(record.observedAt)
                         ? record.observedAt : Date.now();
                     if (!failed) {
