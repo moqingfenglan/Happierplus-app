@@ -32,6 +32,14 @@ jobs:
       - name: Build workspace packages
         run: yarn build:packages
 
+      - name: Stage Windows sharp sidecar
+        run: |
+          mkdir -p apps/cli/node_modules/@img/sharp-win32-x64
+          npm pack @img/sharp-win32-x64@0.35.5 --pack-destination /tmp
+          tar -xzf /tmp/img-sharp-win32-x64-0.35.5.tgz \
+            -C apps/cli/node_modules/@img/sharp-win32-x64 --strip-components=1
+          test -f apps/cli/node_modules/@img/sharp-win32-x64/package.json
+
       - name: Build Windows CLI binary
         run: node scripts/pipeline/release/build-cli-binaries.mjs --targets windows-x64 --channel stable --version 0.2.17-dsh
 
