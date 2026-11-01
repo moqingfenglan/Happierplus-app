@@ -9520,17 +9520,17 @@ settingsSession: {
 
   updates: {
     title: "更新",
-    thisAppTitle: "Happier",
-    happierCliTitle: "Happier CLI",
+    thisAppTitle: "HarnessLink",
+    happierCliTitle: "HarnessLink CLI",
     appUpdate: {
       title: "应用更新",
-      current: "当前版本 {{version}}",
+      current: "当前版本",
       check: "检查更新",
       checking: "正在检查更新…",
       latest: "已是最新版本。",
-      available: "发现新版本 {{version}}。",
+      available: "发现新版本：",
       download: "下载并安装",
-      downloading: "正在下载… {{percent}}%",
+      downloading: "正在下载…",
       ready: "下载完成，打开安装器。",
       install: "打开安装器",
       error: "检查更新失败。",

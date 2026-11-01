@@ -3,7 +3,7 @@
  * version. Bump this for every published APK; the in-app updater compares the
  * GitHub release tag against it.
  */
-export const HARNESSLINK_APP_VERSION = '0.1.4';
+export const HARNESSLINK_APP_VERSION = '0.1.5';
 
 export type ParsedVersion = readonly [number, number, number];
 

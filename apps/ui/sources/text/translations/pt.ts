@@ -9993,17 +9993,17 @@ settingsSession: {
 
   updates: {
     title: "Atualizações",
-    thisAppTitle: "Happier",
-    happierCliTitle: "Happier CLI",
+    thisAppTitle: "HarnessLink",
+    happierCliTitle: "HarnessLink CLI",
     'appUpdate': {
         title: 'App update',
-        current: 'Current version {{version}}',
+        current: 'Current version',
         check: 'Check for updates',
         checking: 'Checking for updates…',
         latest: 'You are on the latest version.',
-        available: 'Version {{version}} is available.',
+        available: 'New version available:',
         download: 'Download and install',
-        downloading: 'Downloading… {{percent}}%',
+        downloading: 'Downloading…',
         ready: 'Download complete. Open the installer.',
         install: 'Open installer',
         error: 'Could not check for updates.',

@@ -120,9 +120,9 @@ export const AppUpdateCard = React.memo(function AppUpdateCard() {
             case 'latest':
                 return t('updates.appUpdate.latest');
             case 'available':
-                return release ? t('updates.appUpdate.available', { version: formatVersion(release.version) }) : null;
+                return release ? `${t('updates.appUpdate.available')} ${formatVersion(release.version)}` : null;
             case 'downloading':
-                return t('updates.appUpdate.downloading', { percent: progress });
+                return `${t('updates.appUpdate.downloading')} ${progress}%`;
             case 'ready':
                 return t('updates.appUpdate.ready');
             case 'error':
@@ -136,7 +136,7 @@ export const AppUpdateCard = React.memo(function AppUpdateCard() {
         <View style={[styles.card, { backgroundColor: theme.colors.surface.base, borderColor: theme.colors.border.default }]} testID="app-update-card">
             <Text style={[styles.title, { color: theme.colors.text.primary }]}>{t('updates.appUpdate.title')}</Text>
             <Text style={[styles.meta, { color: theme.colors.text.secondary }]}>
-                {t('updates.appUpdate.current', { version: HARNESSLINK_APP_VERSION })}
+                {t('updates.appUpdate.current')} {HARNESSLINK_APP_VERSION}
             </Text>
             {status ? (
                 <Text style={[styles.meta, { color: theme.colors.text.secondary }]} accessibilityLiveRegion="polite">

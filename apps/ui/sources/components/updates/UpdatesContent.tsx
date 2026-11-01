@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Platform, View } from 'react-native';
+import { Linking, Platform, View } from 'react-native';
 import { StyleSheet, useUnistyles } from 'react-native-unistyles';
 
 import { RoundButton } from '@/components/ui/buttons/RoundButton';
@@ -13,7 +13,7 @@ import { Text } from '@/components/ui/text/Text';
 import { Typography } from '@/constants/Typography';
 import { t } from '@/text';
 import { useIsTablet } from '@/utils/platform/responsive';
-import { isUpdateItemActionable, type UpdateItem } from '@/updates/items/updateItem';
+import type { UpdateItem } from '@/updates/items/updateItem';
 import type { UpdatesContentModel, UpdatesGroup } from '@/updates/useUpdatesContentModel';
 
 import { describeUpdatesHeader } from './describeUpdatesSummary';
@@ -112,10 +112,7 @@ const UpdatesGroupSection = React.memo(function UpdatesGroupSection(props: Reado
     const hiddenCount = group.items.length - visibleItems.length;
     const waitingOffline = !group.online ? group.items.filter((item) => item.latestVersion != null && item.currentVersion !== item.latestVersion).length : 0;
     const appGroup = group.kind === 'app';
-    // Stable while an app update moves through its states, so the popover does not shrink mid-update.
-    const appItem = group.items[0];
-    const appUpdateInFlight = appItem != null && (isUpdateItemActionable(appItem) || appItem.state === 'running' || appItem.state === 'ready' || appItem.state === 'failed');
-    const showWhatsNew = appGroup && (!compact || model.whatsNewUnread || appUpdateInFlight);
+    const showWhatsNew = appGroup;
 
     if (compact && visibleItems.length === 0 && !(appGroup && model.whatsNewUnread) && waitingOffline === 0) return null;
 
@@ -162,7 +159,7 @@ const UpdatesGroupSection = React.memo(function UpdatesGroupSection(props: Reado
                     title={t('updates.action.whatsNew')}
                     density={compact ? 'compact' : undefined}
                     icon={<Icon name="sparkle" size={compact ? ICON_SIZE.sm : ICON_SIZE.xl} color={theme.colors.text.secondary} />}
-                    onPress={model.openWhatsNew}
+                    onPress={() => { void Linking.openURL('https://github.com/moqingfenglan/Happierplus-app/releases'); }}
                     testID="updates.whatsNew"
                 />
             ) : null}
